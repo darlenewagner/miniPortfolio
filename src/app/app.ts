@@ -17,5 +17,21 @@ export class App {
    em = '';
    ph = '';
    add = '';
+   submitted : boolean = false;
+   showHeading : boolean = true;
    qualification = [{school: '', degree: '', year: '', }];
+
+   addQualification(){
+     this.qualification.push({school: '', degree: '', year: ''});
+   }
+
+   submit(){
+     this.submitted = true;
+     this.showHeading = false;
+   }
+
+   edit(){
+    this.submitted = false;
+    this.showHeading = true;
+   }
 }

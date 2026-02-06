@@ -1,5 +1,5 @@
-<h1>Portfolio</h1>
-<ng-container>
+<h1 *ngIf="showHeading">Portfolio</h1>
+<ng-container *ngIf="!submitted; else preview">
   <h2>Personal Information</h2>
   <form>
     <div>
@@ -20,7 +20,8 @@
     </div>
   </form>
   <h2>Qualifications</h2>
-  <div *ngFor="let q of qualification">
+  <div *ngFor="let q of qualification; let i = index">
+    <h3>Qualification {{i + 1}}</h3>
   <form>
     <div>
       <label for="school">School/College</label>
@@ -37,14 +38,14 @@
   </form>
   </div>
      <div class="btn-container">
-      <button>Add Qualification</button>
-      <button type="submit">Submit</button>
+      <button (click)="addQualification()">Add Qualification</button>
+      <button type="submit" (click)="submit()">Submit</button>
     </div> 
 </ng-container>
-<ng-template>
+<ng-template #preview>
   <div class="preview-container">
     <div>
-      <p></p>
+      <p [ngClass]="{'name' : true}">{{nm}}</p>
       <p>Email : {{em}}</p>
       <p>Phone : {{ph}}</p>
       <p>Address : {{add}}</p>
@@ -53,9 +54,9 @@
       <h3>Qualifications</h3>
       <div *ngFor="let q of qualification">
         <h5>School/College : {{q.school}}</h5>
-        <h5>Degree : {{q.degree}}</h5>
+        <h5>Degree : {{q.degree}} {{q.year}}</h5>
       </div>
     </div>
-    <button class="btn-edit">Edit</button>
+    <button class="btn-edit" (click)="edit()">Edit</button>
   </div>
 </ng-template>

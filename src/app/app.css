@@ -95,3 +95,8 @@ button:hover{
     right: 20px;
     bottom: 20px;
 }
+
+.name{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
