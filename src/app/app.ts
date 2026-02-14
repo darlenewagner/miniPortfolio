@@ -2,7 +2,7 @@ import { Component, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-//import { Container } from './container/container';
+//import { test } from './';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,17 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class App {
+
+  inputValue: string = 'Initial Value';
+
+  ngOnInit(): void {
+    console.log("Calling from the ngOnInit hook...");
+ }
+
+    constructor(){
+      console.log("Calling from the constructor...");
+    }
+
   protected readonly title = signal('miniPortfolio');
    nm = '';
    em = '';
