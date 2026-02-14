@@ -1,12 +1,12 @@
-import { Component, signal, ViewChild } from '@angular/core';
+import { Component, signal, ViewChild, Input, OnChanges, SimpleChanges} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-//import { test } from './';
+import { Test } from './test/test';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, FormsModule],
+  imports: [CommonModule, RouterOutlet, FormsModule, Test],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -15,13 +15,13 @@ export class App {
 
   inputValue: string = 'Initial Value';
 
-  ngOnInit(): void {
-    console.log("Calling from the ngOnInit hook...");
- }
+//  ngOnInit(): void {
+//    console.log("Calling from the ngOnInit hook...");
+// }
 
-    constructor(){
-      console.log("Calling from the constructor...");
-    }
+//    constructor(){
+//      console.log("Calling from the constructor - ", this.inputValue);
+//    }
 
   protected readonly title = signal('miniPortfolio');
    nm = '';
