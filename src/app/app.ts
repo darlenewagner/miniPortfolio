@@ -1,4 +1,4 @@
-import { Component, signal, ViewChild, Input, OnChanges, SimpleChanges} from '@angular/core';
+import { Component, signal, ViewChild, Input, OnChanges, SimpleChanges, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -11,7 +11,19 @@ import { Test } from './test/test';
   styleUrl: './app.css'
 })
 
-export class App {
+export class App implements OnInit {
+  count: number = 0;
+
+  ngOnInit(): void {
+    this.startCounter();
+  }
+  startCounter(){
+    setInterval(()=>{
+      if(this.count <= 5){
+        console.log(this.count++);
+      }
+    },1000);
+  }
 
   inputValue: string = 'Initial Value';
 
