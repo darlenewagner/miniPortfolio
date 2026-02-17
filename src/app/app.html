@@ -1,5 +1,12 @@
+<div>
+  <app-test [user]="user"></app-test>
+  <button (click)="changeUserName()">Change User Name</button>
+</div>
+
+
 <h1 *ngIf="showHeading">Portfolio</h1>
-<app-test [inputValue]="inputValue"></app-test>
+
+
 <ng-container *ngIf="!submitted; else preview">
   <h2>Personal Information</h2>
   <form>

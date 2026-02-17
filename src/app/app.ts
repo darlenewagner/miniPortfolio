@@ -1,12 +1,12 @@
 import { Component, signal, ViewChild, Input, OnChanges, SimpleChanges, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Test } from './test/test';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, FormsModule, Test],
+  imports: [CommonModule, RouterOutlet, FormsModule, Test, JsonPipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
