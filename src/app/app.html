@@ -1,11 +1,17 @@
-<div>
+<!-- <div>
   <app-test [user]="user"></app-test>
   <button (click)="changeUserName()">Change User Name</button>
-</div>
+</div> -->
 
 
 <h1 *ngIf="showHeading">Portfolio</h1>
-
+<div>
+  <h2>Parent Component</h2>
+  <button (click)="sendDataToChild()">Generate Number</button>
+  <app-test>
+    <h3>{{dataFromParent}}</h3>
+  </app-test>
+</div>
 
 <ng-container *ngIf="!submitted; else preview">
   <h2>Personal Information</h2>

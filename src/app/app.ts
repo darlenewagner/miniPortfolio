@@ -1,4 +1,4 @@
-import { Component, signal, ViewChild, Input, OnChanges, SimpleChanges, OnInit} from '@angular/core';
+import { AfterContentInit, Component, signal, ViewChild, Input, OnChanges, SimpleChanges, OnInit} from '@angular/core';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -11,7 +11,18 @@ import { Test } from './test/test';
   styleUrl: './app.css'
 })
 
-export class App implements OnInit {
+export class App implements AfterContentInit {
+  
+  dataFromParent = '';
+
+  ngAfterContentInit(): void {
+    console.log("ngAfterContentInit was invoked...");
+  }
+  sendDataToChild(): void{
+    let random = Math.floor(Math.random() * 10);
+    this.dataFromParent = "Random Number: " + random;
+  }
+  
 
   user = {
        name: 'Shrike',
@@ -20,19 +31,18 @@ export class App implements OnInit {
       this.user.name = 'Grike';
     }
 
+ // count: number = 0;
 
-  count: number = 0;
-
-  ngOnInit(): void {
-    this.startCounter();
-  }
-  startCounter(){
-    setInterval(()=>{
-      if(this.count <= 5){
-        console.log(this.count++);
-      }
-    },1000);
-  }
+ // ngOnInit(): void {
+ //   this.startCounter();
+ // }
+ // startCounter(){
+ //   setInterval(()=>{
+ //     if(this.count <= 5){
+ //       console.log(this.count++);
+ //     }
+ //   },1000);
+ // }
 
   inputValue: string = 'Initial Value';
 

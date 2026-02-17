@@ -13,10 +13,11 @@ export class Test implements DoCheck {
   private previousUserName: string | undefined;
    
    ngDoCheck(): void {
-     if(this.user.name != this.previousUserName){
-       this.previousUserName = this.user.name;
-       console.log('ngDoCheck called - User name changed: ', this.user.name);
-     }
+//     if(this.user.name != this.previousUserName){
+//       this.previousUserName = this.user.name;
+//       console.log('ngDoCheck called - User name changed: ', this.user.name);
+        console.log("ngDoCheck was invoked...");
+ //    }
    }
    
 //   ngOnChanges(changes: SimpleChanges){
