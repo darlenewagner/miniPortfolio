@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, DoCheck, OnChanges, SimpleChanges } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -7,12 +7,20 @@ import { JsonPipe } from '@angular/common';
   templateUrl: './test.html',
   styleUrl: './test.css',
 })
-export class Test implements OnChanges{
+export class Test implements DoCheck {
    
   @Input() user: any;
-
-   ngOnChanges(changes: SimpleChanges){
-     console.log("ngOnChanges called: ", changes);
+  private previousUserName: string | undefined;
+   
+   ngDoCheck(): void {
+     if(this.user.name != this.previousUserName){
+       this.previousUserName = this.user.name;
+       console.log('ngDoCheck called - User name changed: ', this.user.name);
+     }
    }
+   
+//   ngOnChanges(changes: SimpleChanges){
+//     console.log("ngOnChanges called: ", changes);
+//   }
 
 }
