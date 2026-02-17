@@ -12,6 +12,15 @@ import { Test } from './test/test';
 })
 
 export class App implements OnInit {
+
+  user = {
+       name: 'Shrike',
+     };
+    changeUserName(){
+      this.user.name = 'Grike';
+    }
+
+
   count: number = 0;
 
   ngOnInit(): void {
