@@ -1,4 +1,4 @@
-import { Component, Input, DoCheck, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, DoCheck, OnChanges, SimpleChanges, AfterContentInit, ElementRef, ContentChild, ViewChild } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -9,9 +9,11 @@ import { JsonPipe } from '@angular/common';
 })
 export class Test implements AfterContentInit {
    
-  @Input() user: any;
-  private previousUserName: string | undefined;
-   
+ // @Input() user: any;
+ // private previousUserName: string | undefined;
+  @ViewChild('wrapper') wrapper!: ElementRef;
+  @ContentChild('contentWrapper') content!: ElementRef; 
+
 //   ngDoCheck(): void {
 //     if(this.user.name != this.previousUserName){
 //       this.previousUserName = this.user.name;
@@ -21,7 +23,9 @@ export class Test implements AfterContentInit {
  //  }
    
   ngAfterContentInit(): void {
-    
+    console.log("ngAfterContentInit was invoked...");
+    console.log('ngAfterContentInit - wrapper', this.wrapper);
+    console.log('ngAfterContentInit - ', 'contentWrapper', this.content);    
   }
 
 //   ngOnChanges(changes: SimpleChanges){
