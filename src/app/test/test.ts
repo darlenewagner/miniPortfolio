@@ -1,4 +1,4 @@
-import { Component, Input, DoCheck, OnChanges, SimpleChanges, AfterContentInit, ElementRef, ContentChild, ViewChild } from '@angular/core';
+import { Component, Input, DoCheck, OnChanges, SimpleChanges, AfterContentInit, ElementRef, ContentChild, ViewChild, AfterContentChecked } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -7,7 +7,7 @@ import { JsonPipe } from '@angular/common';
   templateUrl: './test.html',
   styleUrl: './test.css',
 })
-export class Test implements AfterContentInit {
+export class Test implements AfterContentInit, AfterContentChecked {
    
  // @Input() user: any;
  // private previousUserName: string | undefined;
@@ -28,6 +28,9 @@ export class Test implements AfterContentInit {
     console.log('ngAfterContentInit - ', 'contentWrapper', this.content);    
   }
 
+  ngAfterContentChecked(): void {
+    console.log("ngAfterContentChecked() was invoked...");
+  }
 //   ngOnChanges(changes: SimpleChanges){
 //     console.log("ngOnChanges called: ", changes);
 //   }
