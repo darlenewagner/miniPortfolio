@@ -7,19 +7,23 @@ import { JsonPipe } from '@angular/common';
   templateUrl: './test.html',
   styleUrl: './test.css',
 })
-export class Test implements DoCheck {
+export class Test implements AfterContentInit {
    
   @Input() user: any;
   private previousUserName: string | undefined;
    
-   ngDoCheck(): void {
+//   ngDoCheck(): void {
 //     if(this.user.name != this.previousUserName){
 //       this.previousUserName = this.user.name;
 //       console.log('ngDoCheck called - User name changed: ', this.user.name);
-        console.log("ngDoCheck was invoked...");
+//        console.log("ngDoCheck was invoked...");
  //    }
-   }
+ //  }
    
+  ngAfterContentInit(): void {
+    
+  }
+
 //   ngOnChanges(changes: SimpleChanges){
 //     console.log("ngOnChanges called: ", changes);
 //   }

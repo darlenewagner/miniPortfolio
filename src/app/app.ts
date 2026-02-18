@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, signal, ViewChild, Input, OnChanges, SimpleChanges, OnInit} from '@angular/core';
+import { AfterContentInit, Component, DoCheck, signal, ViewChild, Input, OnChanges, SimpleChanges, OnInit} from '@angular/core';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -11,13 +11,18 @@ import { Test } from './test/test';
   styleUrl: './app.css'
 })
 
-export class App implements AfterContentInit {
+export class App implements DoCheck {
   
   dataFromParent = '';
 
-  ngAfterContentInit(): void {
-    console.log("ngAfterContentInit was invoked...");
+//  ngAfterContentInit(): void {
+//    console.log("ngAfterContentInit was invoked...");
+//  }
+
+  ngDoCheck(): void {
+    console.log("ngDoCheck was invoked...");
   }
+
   sendDataToChild(): void{
     let random = Math.floor(Math.random() * 10);
     this.dataFromParent = "Random Number: " + random;
