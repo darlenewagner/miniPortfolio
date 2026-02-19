@@ -3,15 +3,22 @@ import { CommonModule, JsonPipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Test } from './test/test';
+import { Another } from './another/another';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, FormsModule, Test, JsonPipe],
+  imports: [CommonModule, RouterOutlet, FormsModule, Test, JsonPipe, Another],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 
-export class App implements DoCheck {
+export class App implements OnInit, DoCheck {
+
+  displayComponent: boolean = true;
+
+  toggle(){
+    this.displayComponent = !this.displayComponent;
+  }
   
   dataFromParent = '';
 
@@ -38,9 +45,9 @@ export class App implements DoCheck {
 
  // count: number = 0;
 
- // ngOnInit(): void {
- //   this.startCounter();
- // }
+  ngOnInit(): void {
+    console.log("App: OnInit");
+  }
  // startCounter(){
  //   setInterval(()=>{
  //     if(this.count <= 5){
