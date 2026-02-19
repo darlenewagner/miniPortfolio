@@ -1,4 +1,4 @@
-import { Component, Input, DoCheck, OnChanges, SimpleChanges, AfterViewInit, AfterContentInit, ElementRef, ContentChild, ViewChild, AfterContentChecked } from '@angular/core';
+import { Component, Input, DoCheck, OnChanges, SimpleChanges, AfterViewInit, AfterContentInit, ElementRef, ContentChild, ViewChild, AfterContentChecked, AfterViewChecked } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -7,7 +7,7 @@ import { JsonPipe } from '@angular/common';
   templateUrl: './test.html',
   styleUrl: './test.css',
 })
-export class Test implements AfterViewInit, AfterContentInit, AfterContentChecked {
+export class Test implements AfterViewInit, AfterContentInit, AfterContentChecked, AfterViewChecked {
    
  // @Input() user: any;
  // private previousUserName: string | undefined;
@@ -34,7 +34,7 @@ export class Test implements AfterViewInit, AfterContentInit, AfterContentChecke
 
  ngAfterViewInit(): void {
   const divElement: HTMLElement = this.wrapper.nativeElement;
-  divElement.style.color = "goldenrod";
+  divElement.style.color = "darkgreen";
   divElement.style.fontSize = "15px";
   divElement.style.fontWeight = "300";
 
@@ -43,5 +43,9 @@ export class Test implements AfterViewInit, AfterContentInit, AfterContentChecke
 //   ngOnChanges(changes: SimpleChanges){
 //     console.log("ngOnChanges called: ", changes);
 //   }
+
+ngAfterViewChecked(): void {
+  console.log('ngAfterViewChecked() hook was invoked...');
+}
 
 }
