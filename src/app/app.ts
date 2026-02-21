@@ -66,6 +66,27 @@ export class App implements OnInit, DoCheck {
 //      console.log("Calling from the constructor - ", this.inputValue);
 //    }
 
+
+ tryInputDecorator = [
+  {
+    "id": 1,
+    "name": "JavaScript - Marathon Interview Questions Series"
+  },
+  {
+     "id": 2,
+     "name": "Mastering React with Interview Questions, eStore Project"
+  },
+  {
+     "id": 3,
+     "name": "Mastering TypeScript With Marathon Interview Questions"
+  },
+  {
+    "id": 3,
+    "name": "Mastering TypeScript With Marathon Interview Questions"
+  }
+ ];
+
+
   protected readonly title = signal('miniPortfolio');
    nm = '';
    em = '';
