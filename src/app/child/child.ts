@@ -3,7 +3,7 @@ import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-child',
-  imports: [],
+  imports: [CommonModule, JsonPipe],
   templateUrl: './child.html',
   styleUrl: './child.css',
 })
