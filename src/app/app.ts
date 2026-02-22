@@ -67,7 +67,7 @@ export class App implements OnInit, DoCheck {
 //    }
 
 
- tryInputDecorator = [
+ courses: {id: number, name: string}[] = [
   {
     "id": 1,
     "name": "JavaScript - Marathon Interview Questions Series"
@@ -81,8 +81,8 @@ export class App implements OnInit, DoCheck {
      "name": "Mastering TypeScript With Marathon Interview Questions"
   },
   {
-    "id": 3,
-    "name": "Mastering TypeScript With Marathon Interview Questions"
+    "id": 4,
+    "name": "Mastering HTML, CSS, Sass, Bootstrap + Interview Questions"
   }
  ];
 
