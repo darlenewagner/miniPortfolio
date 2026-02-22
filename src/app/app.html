@@ -1,8 +1,19 @@
- <div>
+ <div class="container">
+   <div class="parent">
+     <h2>Data in App Component</h2>
+     <pre>{{courses | json}}</pre>
+   </div>
+   <div class="child">
+     <h2>Child Component</h2>
+     <app-child [showData]="courses"></app-child>
+   </div>
+ </div>
+
+ <!-- <div>
   <h2>Parent Component</h2>
-  <!-- <app-test [user]="user"></app-test> -->
+   <app-test [user]="user"></app-test> 
   <button (click)="toggle()">Hide/Show Child</button>
-</div> 
+</div> --> 
 
 <app-another *ngIf="displayComponent"></app-another>
 

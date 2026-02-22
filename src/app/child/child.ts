@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-child',
@@ -7,6 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './child.css',
 })
 export class Child {
-  @Input() showData: {id: number; name: string}[] = [];
+  @Input() showData: {id: number; name: string }[] = [];
   
 }

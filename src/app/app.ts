@@ -4,10 +4,11 @@ import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Test } from './test/test';
 import { Another } from './another/another';
+import { Child } from './child/child';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, FormsModule, Test, JsonPipe, Another],
+  imports: [CommonModule, RouterOutlet, FormsModule, Test, JsonPipe, Another, Child],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
