@@ -1,8 +1,9 @@
 <div>
     <h3>Child Component</h3>
     <ul>
-        <li *ngFor="let item of items">
+        <li *ngFor="let item of items; let i = index">
             {{item}}
+            <button (click)="deleteIndex(i)">Delete</button>
         </li>
     </ul>
 </div>

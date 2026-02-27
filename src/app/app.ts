@@ -22,6 +22,12 @@ export class App implements OnInit, DoCheck {
     this.itemsArr.push(newItem);
   }
 
+  deleteItem(index: number){
+    if(index >=0 && index < this.itemsArr.length){
+      this.itemsArr.splice(index, 1);
+    }
+  }
+
   displayComponent: boolean = true;
 
   toggle(){

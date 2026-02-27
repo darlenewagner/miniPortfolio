@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, Output, OnInit, OnDestroy, EventEmitter } from '@angular/core';
 import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
@@ -17,4 +17,12 @@ export class Child implements OnInit, OnDestroy{
     this.itemDeleted.emit(index);
   }
 
+  ngOnInit(): void {
+    console.log('Child Component is intitialized.');
+  }
+
+  ngOnDestroy(): void {
+    console.log('Child Component is destroyed');
+  }
+   
 }
