@@ -15,6 +15,13 @@ import { Child } from './child/child';
 
 export class App implements OnInit, DoCheck {
 
+  itemsArr: string[] = ['Item 1', 'Item 2', 'Item 3'];
+
+  addItem(){
+    const newItem = `Item ${this.itemsArr.length + 1}`;
+    this.itemsArr.push(newItem);
+  }
+
   displayComponent: boolean = true;
 
   toggle(){

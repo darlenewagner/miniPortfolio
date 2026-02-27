@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
@@ -7,7 +7,14 @@ import { CommonModule, JsonPipe } from '@angular/common';
   templateUrl: './child.html',
   styleUrl: './child.css',
 })
-export class Child {
-  @Input() showData: {id: number; name: string }[] = [];
-  
+export class Child implements OnInit, OnDestroy{
+
+  // @Input() showData: {id: number; name: string }[] = [];
+  @Input() items: string[] = [];
+  @Output() itemDeleted = new EventEmitter();
+
+  deleteIndex(index: number){
+    this.itemDeleted.emit(index);
+  }
+
 }
